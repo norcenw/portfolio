@@ -10,14 +10,6 @@
   box-sizing: border-box;
 }
 
-.text-crimson {
-  color: #dc143c;
-}
-
-.hover\:text-crimson:hover {
-  color: #dc143c;
-}
-
 .font-title {
   font-family: "MuseoModerno", sans-serif;
   font-weight: 700;
