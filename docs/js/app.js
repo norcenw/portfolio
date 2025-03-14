@@ -1,13 +1,84 @@
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/js/app.js":
 /*!***********************!*\
   !*** ./src/js/app.js ***!
   \***********************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-document.addEventListener("DOMContentLoaded", function (event) {});
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _dict_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dict.js */ "./src/js/dict.js");
+
+document.addEventListener("DOMContentLoaded", function (event) {
+  function getCookie(name) {
+    var value = "; " + document.cookie;
+    var parts = value.split("; " + name + "=");
+    if (parts.length === 2) return parts.pop().split(";").shift();
+    return null;
+  }
+  function setCookie(name, value, days) {
+    var options = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
+    var cookieStr = name + "=" + encodeURIComponent(value) + "; path=/";
+    if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+      cookieStr += "; expires=" + date.toUTCString();
+    }
+    if (options.sameSite) {
+      cookieStr += "; SameSite=" + options.sameSite;
+    }
+    if (options.secure) {
+      cookieStr += "; Secure";
+    }
+    document.cookie = cookieStr;
+  }
+  var languageSelected = getCookie("lang") || "en";
+  var TRANSLATOR = new EOTranslator(_dict_js__WEBPACK_IMPORTED_MODULE_0__["default"], languageSelected);
+  console.log(TRANSLATOR);
+  var languageSelect = document.querySelector('select[name="language-selector"]');
+  if (languageSelect) {
+    languageSelect.value = languageSelected;
+  }
+  TRANSLATOR.translateDOM();
+  if (languageSelect) {
+    languageSelect.addEventListener("change", function () {
+      var newLang = this.value;
+      setCookie("lang", newLang, 7, {
+        sameSite: "None",
+        secure: true
+      });
+      TRANSLATOR.language = newLang;
+      TRANSLATOR.translateDOM();
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./src/js/dict.js":
+/*!************************!*\
+  !*** ./src/js/dict.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var dict = {
+  it: {},
+  en: {
+    "Chi sono": "About me",
+    "Progetti": "Projects",
+    "Contatti": "Contacts"
+  },
+  de: {},
+  es: {},
+  fr: {}
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (dict);
 
 /***/ }),
 
@@ -17,7 +88,6 @@ document.addEventListener("DOMContentLoaded", function (event) {});
   \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -83,6 +153,18 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 				}
 /******/ 			}
 /******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
 /******/ 		};
 /******/ 	})();
 /******/ 	

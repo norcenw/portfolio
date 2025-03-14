@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="assets/icon/logo.png">
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="assets/library/translator.min.js"></script>
     <link rel="stylesheet" href="css/style.css" type="text/tailwindcss">
+    <script src="js/app.js"></script>
     <title>Norcen Weiye | Contact</title>
 </head>
 
@@ -19,13 +21,13 @@
             <div class="flex align-center justify-between">
                 <nav class="pr-6 flex items-center">
                     <ul class="flex space-x-6">
-                        <li><a href="#about" class="hover:text-[#dc143c] transition duration-300">Chi sono</a></li>
-                        <li><a href="#projects" class="hover:text-[#dc143c] transition duration-300">Progetti</a></li>
-                        <li><a href="#contact" class="hover:text-[#dc143c] transition duration-300">Contatti</a></li>
+                        <li><a href="#about" class="hover:text-[#dc143c] transition duration-300" eo-translator="Chi sono"></a></li>
+                        <li><a href="#projects" class="hover:text-[#dc143c] transition duration-300"  eo-translator="Progetti"></a></li>
+                        <li><a href="#contact" class="hover:text-[#dc143c] transition duration-300" eo-translator="Contatti"></a></li>
                     </ul>
                 </nav>
 
-                <select id="" class="cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-[#dc143c]">
+                <select name="language-selector" class="cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-[#dc143c]">
                     <option value="it">🇮🇹&emsp;Italiano</option>
                     <option value="en">🇬🇧&emsp;English</option>
                     <option value="de">🇩🇪&emsp;Deutsch</option>
